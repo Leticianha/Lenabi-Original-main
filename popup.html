@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <title>Sorteio Amazon</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            height: 500vh;
+        }
+
+        .circle {
+            position: fixed;
+            bottom: 41px;
+            right: 80px;
+            width: 50px;
+            height: 50px;
+            background-color: #3498db;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .popupSorteio {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sorteioCupons">
+        <div class="circle" onclick="openPopup()"></div>
+        <div class="popupSorteio" id="popupSorteio">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <h2>Sorteio de Cupons Amazon</h2>
+            <p>Clique no botão abaixo para participar do sorteio:</p>
+            <button onclick="participarSorteio()">Participar do Sorteio</button>
+            <div id="cupomResultado"></div>
+        </div>
+    </div>
+
+    <script>
+        function openPopup() {
+            document.getElementById("popupSorteio").style.display = "block";
+        }
+
+        function closePopup() {
+            document.getElementById("popupSorteio").style.display = "none";
+        }
+
+        function participarSorteio() {
+            const cupons = [
+                "ROMANCE60",
+                "AVENTURA50",
+                "FICCAO45",
+                "SUSPENSE55",
+                "DRAMA40",
+                "COMEDIA30",
+                "ACAO35",
+                "FANTASIA25",
+                "TERROR50",
+                "HISTORIA55",
+                "MISTERIO45",
+                "NOVELA40"
+            ];
+
+            const cupomSorteado = cupons[Math.floor(Math.random() * cupons.length)];
+
+            document.getElementById("cupomResultado").innerHTML = `Seu cupom: ${cupomSorteado}`;
+        }
+
+    </script>
+</body>
+
+</html>

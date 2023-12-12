@@ -1,0 +1,32 @@
+function Escolher(idioma) {
+    fetch(`texto_${idioma}.json`)
+        .then(resposta => resposta.json())
+        .then(texto => {
+            document.getElementById('tituloSus').textContent = texto.tituloSus;
+            document.getElementById('subTitulo').innerText = texto.subTitulo;
+            document.getElementById('subSus').innerText = texto.subSus;
+            document.getElementById('qualidade').innerText = texto.qualidade;
+            document.getElementById('subSusIn').innerText = texto.subSusIn;
+            document.getElementById('inovacao').innerText = texto.inovacao;
+            document.getElementById('subSusSus').innerText = texto.subSusSus;
+            document.getElementById('sustentavel').innerText = texto.sustentavel;
+            document.getElementById('subSuses').innerText = texto.subSuses;
+            document.getElementById('essencial').innerText = texto.essencial;
+            document.getElementById('mobileSus').innerText = texto.mobileSus;
+            document.getElementById('textMobile').innerText = texto.textMobile;
+            document.getElementById('saibaSus').innerText = texto.saibaSus;
+            document.getElementById('projetoSus').innerText = texto.projetoSus;
+            document.getElementById('tituloBio').innerText = texto.tituloBio;
+            document.getElementById('textoBio').innerText = texto.textoBio;
+            document.getElementById('tituloPlan').innerText = texto.tituloPlan;
+            document.getElementById('textoPlan').innerText = texto.textoPlan;
+            // footer
+            document.getElementById('pre2').innerText = texto.pre2;
+            document.getElementById('lan2').innerText = texto.lan2;
+            document.getElementById('pro2').innerText = texto.pro2;
+            document.getElementById('sus2').innerText = texto.sus2;
+            document.getElementById('fav').innerText = texto.fav;
+            document.getElementById('sn').innerText = texto.sn;
+        })
+        .catch(error => console.log('Erro buscando textos:', error));
+}
